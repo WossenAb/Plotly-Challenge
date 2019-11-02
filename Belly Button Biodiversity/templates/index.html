@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Flask Plotlyjs Example</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="static/js/style.css">
+
+</head>
+
+<body>
+
+  <div class="container" style="background-color: mintcream">
+    <div class="row">
+      <div style = "background-color: lightgray" class="col-md-12 jumbotron text-center">
+        <h1>Belly Button Biodiversity Dashboard</h1>
+        <p>Use the interactive charts below to explore the dataset</p>
+
+      </div>
+        <div class="col-md-7 text-left">
+            <h2>What is the Belly Button Biodiversity Dataset?</h2>
+            <p>In 2011 the Rob Dunn Laboatory launched an investigation foccused on studying the large varietiess of microbial life/bacteria that inhibit in the human navel. with in a few months of its launch, the research somehow garnered the attention of countless citizen scientists. Such a large public interest has contributed both to the popularity as well as the substantive scientific endavours of the study. For additional info on various aspects of the study, including the datasets used and the methodolgy, please visit the study site<a href="http://robdunnlab.com/projects/belly-button-biodiversity">here</a>. </p>
+            <p>For this dashboard, we used both Belly Button Data Sets 1 & 2. A jyupter notebook was used to convert and combine the CSV files collected for the resarch into a single sqlite dataset.</p>
+            <p> Viewing the dashboard locally requires a Flash application. A link to the various resources and orginal data used for the construction of this dashboard should be posted on github soon.Wondwossen Abatheneh (WossenAb) </p>
+
+        </div>
+
+        <div class="col-md-5">
+            <a href="http://robdunnlab.com/projects/belly-button-biodiversity">
+        <img src="http://robdunnlab.com/wp-content/uploads/microbes-sem.jpg" height="250px" align="right"></a>
+
+        </div>
+
+        <br>
+
+    </div>
+
+<br>
+
+<!--    Starting the first row below the jumbotron-->
+    <div class="row">        
+
+<!--   Metadata Section, Dropdown then Data Sample-->
+
+      <div class="col-md-2">
+        <div class="well">
+          <h5>SELECT Sample:</h5>
+          <select id="selDataset" onchange="optionChanged(this.value)"></select> 
+          
+      </div>
+
+  
+        
+<!--    Linking the Build Metadata app.js to the panel div ID below  -->
+
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">Sample MetaData</h3>
+
+          </div>
+        <div id="sample-metadata" class="panel-body"></div>
+
+        </div>
+
+      </div>
+
+     
+        
+<!--  Link the pie chart from the app.js to the pie ID below-->
+
+      <div class="col-md-7">
+        <div id="pie"></div>
+
+<!--  Link to jsonfile API-->
+
+        </div>
+     
+       <div class="col-md-3">
+        <div class="panel panel-primary">
+           <div class = "panel-heading">
+            <h3 class="panel-title">API Links Address</h3>
+            </div>
+            <div id="test-link" class="panel-body">
+
+            Entering the ending link with<br>
+
+            the desired sample number<br>
+
+                <br>
+
+                Example: <br>
+               <em>/metadata/941</em> <br>
+                <br>
+            <em>/samples/{sample} <br>
+            /metadata/{sample} <br>
+            /names</em>
+            </div>
+           </div>
+        </div> 
+
+        
+ 
+    </div>      
+
+
+  
+<!--  Link the bubble plot from app.js to the bubble div ID below-->
+
+      <div class="row">
+        <div class="col-md-12">
+          <div id="bubble"></div>
+        </div>
+      </div>
+
+  <!-- <script src="https://cdn.plot.ly/plotly-1.31.2.min.js"></script> -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+  <!-- <script src="{{ url_for('static', filename='js/bonus.js') }}"></script> -->
+
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+
+
+  </div>        <!-- Close Container Div -->
+
+
+
+</body>
+
+
+
+</html>
